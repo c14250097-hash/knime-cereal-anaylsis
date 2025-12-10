@@ -138,7 +138,7 @@ memberikan gambaran strategis bahwa produsen dapat meningkatkan nilai
 jual produk dengan menambahkan bahan kaya protein atau memperkaya
 kandungan serat. Dalam konteks harga, sereal dengan formulasi protein
 atau serat lebih tinggi umumnya dijual dengan harga lebih mahal
-karena dianggap premium—dan berdasarkan analisis data, konsumen memang
+karena dianggap premium dan berdasarkan analisis data, konsumen memang
 memberikan rating lebih baik pada produk semacam itu.
 
 KNIME berperan besar dalam memetakan hubungan nutrisi dengan rating
