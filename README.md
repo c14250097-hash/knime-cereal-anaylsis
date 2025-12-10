@@ -63,7 +63,7 @@ Ini menandakan produsen cenderung menjaga nilai kalori tetap moderat agar sereal
 ---
 
 ## 📈 **2. Pengaruh Serat (Fiber) terhadap Rating**
-![Scatter Fiber](Scatter Plot fiber.png)
+![Scatter Fiber](Scatter%20Plot%20fiber.png)
 
 Scatter plot menunjukkan hubungan kandungan **serat** dengan **rating**.  
 Terlihat kecenderungan bahwa sereal dengan serat lebih tinggi sering mendapatkan rating lebih baik.  
