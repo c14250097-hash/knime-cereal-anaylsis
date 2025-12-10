@@ -4,50 +4,114 @@ Repository ini berisi hasil analisis nutrisi produk sereal menggunakan KNIME, mu
 
 ---
 
-# 📥 1. Proses Analisis: Dari CSV → KNIME → Visualisasi
-
-Berikut adalah alur lengkap proses analisis:
+## 1️⃣ Column Filter  
+Node **Column Filter** digunakan sebagai langkah awal untuk memilih kolom-kolom
+yang diperlukan saja dari dataset `Cereals.csv`.  
+Kolom yang kurang relevan atau tidak digunakan untuk pemodelan dihapus
+agar analisis menjadi lebih efisien.
 
 ---
 
-## 🔹 **1. Import Data (Cereals.csv)**
-Menggunakan node **CSV Reader**, KNIME membaca data mentah berisi:
+## 2️⃣ Missing Value  
+Node **Missing Value** bertugas menangani data kosong.  
+Pada tahap ini, KNIME melakukan:
+
+- Pengisian nilai kosong secara otomatis (mean/median)  
+- Menghilangkan baris jika diperlukan  
+- Menstabilkan dataset sebelum diproses lebih lanjut  
+
+Hal ini penting untuk menghindari error saat normalisasi atau pemodelan.
+
+---
+
+## 3️⃣ Normalizer  
+Node **Normalizer** menstandarkan seluruh nilai numerik.  
+Normalisasi dilakukan agar:
+
+- Semua variabel berada dalam skala yang seragam  
+- Model regresi tidak bias terhadap kolom yang memiliki skala lebih besar  
+
+Metode normalisasi biasanya menggunakan *min–max* atau *z-score*.
+
+---
+
+## 4️⃣ Linear Regression Learner  
+Node **Linear Regression Learner** digunakan untuk melatih model regresi linear.  
+Tujuannya untuk memprediksi **rating sereal** berdasarkan faktor nutrisi seperti:
 
 - Kalori  
 - Protein  
-- Lemak  
-- Natrium  
 - Serat  
 - Gula  
-- Potassium  
-- Rating  
-- dan atribut lainnya
+- Sodium  
+
+Model mempelajari hubungan linier antara variabel nutrisi dan nilai rating.
 
 ---
 
-## 🔹 **2. Data Preprocessing**
-Tahap pembersihan menggunakan KNIME:
-
-- **Missing Value** → menangani nilai kosong  
-- **Column Filter** → memilih kolom yang relevan  
-- **Row Filter** → membuang baris yang tidak lengkap  
-- Transformasi data dengan **Rule Engine** / **Math Formula** jika dibutuhkan  
-
-Tujuannya membuat data siap dianalisis tanpa error.
+## 5️⃣ Regression Predictor  
+Node **Regression Predictor** memberikan prediksi rating baru berdasarkan model
+yang sudah dilatih.  
+Output-nya berupa kolom baru berisi nilai rating prediksi.
 
 ---
 
-## 🔹 **3. Exploratory Data Analysis (EDA)**
-Menggunakan node:
+## 6️⃣ Numeric Scorer  
+Node **Numeric Scorer** digunakan untuk mengevaluasi performa model.  
+Metrik yang dihitung meliputi:
 
-- **Statistics**  
-- **Data Explorer**  
-- **Sorter / GroupBy**  
+- RMSE (Root Mean Square Error)  
+- MAE (Mean Absolute Error)  
+- R² (Coefficient of Determination)  
 
-Memberikan gambaran awal, persebaran data, dan potensi pola.
+Langkah ini membantu mengetahui seberapa baik model memprediksi rating produk.
 
 ---
 
+## 7️⃣ Denormalizer  
+Node **Denormalizer** mengembalikan data ke skala aslinya setelah proses prediksi.  
+Hal ini diperlukan karena:
+
+- Normalizer mengubah skala data  
+- Prediksi model berada pada skala yang sudah dinormalisasi  
+- Denormalizer mengembalikan nilai ke format yang dapat dibaca dan dianalisis
+
+---
+
+# 📊 Visualisasi Output
+
+Workflow menghasilkan tiga jenis visualisasi utama:
+
+---
+
+## 📈 Scatter Plot  
+Scatter plot digunakan untuk melihat hubungan antara variabel nutrisi 
+(misalnya gula atau protein) dengan rating.  
+Visualisasi ini membantu mengidentifikasi pola linear atau tren tertentu.
+
+---
+
+## 📉 Histogram  
+Histogram digunakan untuk memahami distribusi nilai seperti:
+
+- Distribusi kalori  
+- Distribusi kandungan gula  
+- Distribusi rating  
+
+Visual ini menunjukkan bagaimana data tersebar dan apakah ada outlier.
+
+---
+
+## 📦 Box Plot  
+Box plot menggambarkan:
+
+- Outlier  
+- Nilai median  
+- Quartile distribusi nutrisi  
+
+Sangat berguna untuk memahami variasi nutrisi antar jenis sereal.
+
+---
 # 📊 2. Visualisasi dan Penjelasan
 
 Berikut visualisasi utama berdasarkan file PNG yang telah di-upload ke repository ini:
