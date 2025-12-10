@@ -72,7 +72,7 @@ Serat adalah komponen penting kesehatan sehingga memengaruhi persepsi kualitas.
 ---
 
 ## 📈 **3. Pengaruh Gula terhadap Rating**
-![Scatter Gula](Scatter Plot sugars.png)
+![Scatter Gula](Scatter%20Plot%20sugars.png)
 
 Terlihat pola negatif: semakin tinggi kadar gula, rating cenderung menurun.  
 Konsumen cenderung memilih sereal yang tidak terlalu manis dan lebih sehat.
@@ -80,7 +80,7 @@ Konsumen cenderung memilih sereal yang tidak terlalu manis dan lebih sehat.
 ---
 
 ## 📈 **4. Scatter Plot Nutrisi Lainnya**
-![Scatter Plot umum](Scatter Plot.png)
+![Scatter Plot umum](Scatter%20Plot.png)
 
 Scatter Plot ini memberikan gambaran hubungan nutrisi lain terhadap rating.  
 Variasi pola membantu memahami faktor tambahan yang berpengaruh terhadap kualitas sereal.
