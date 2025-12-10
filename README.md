@@ -4,6 +4,14 @@ Repository ini berisi hasil analisis nutrisi produk sereal menggunakan KNIME, mu
 
 ---
 
+## 📥 1. Input Data  
+### **Node: CSV Reader / File Reader**
+- Membaca file **Cereals.csv**  
+- Mengonversi secara otomatis tipe data (integer, double, string)  
+- Mengecek apakah ada kolom kosong atau baris tidak valid  
+- Menghasilkan tabel data mentah sebagai dasar analisis
+
+
 ## 1️⃣ Column Filter  
 Node **Column Filter** digunakan sebagai langkah awal untuk memilih kolom-kolom
 yang diperlukan saja dari dataset `Cereals.csv`.  
@@ -12,6 +20,8 @@ agar analisis menjadi lebih efisien.
 
 ---
 
+## 🧹 2. Data Cleaning  
+Workflow melakukan pembersihan awal agar data siap digunakan.
 ## 2️⃣ Missing Value  
 Node **Missing Value** bertugas menangani data kosong.  
 Pada tahap ini, KNIME melakukan:
@@ -24,6 +34,8 @@ Hal ini penting untuk menghindari error saat normalisasi atau pemodelan.
 
 ---
 
+## 📊 3. Exploratory Data Analysis (EDA)
+Workflow mengevaluasi pola dasar di dalam dataset.
 ## 3️⃣ Normalizer  
 Node **Normalizer** menstandarkan seluruh nilai numerik.  
 Normalisasi dilakukan agar:
