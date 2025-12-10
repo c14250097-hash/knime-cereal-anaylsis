@@ -1,19 +1,17 @@
 # 🥣 Analisis Dataset Cereals — KNIME Workflow
 
-Repository ini berisi hasil analisis data nutrisi sereal menggunakan KNIME, mulai dari proses membaca data mentah (*Cereals.csv*), pembersihan data, eksplorasi, hingga pembuatan visualisasi dan insight akhir.  
-
-Seluruh analisis berfokus pada hubungan nutrisi dengan rating setiap produk sereal.
+Repository ini berisi hasil analisis nutrisi produk sereal menggunakan KNIME, mulai dari proses membaca data mentah (*Cereals.csv*), pembersihan data, eksplorasi, hingga visualisasi dan insight akhir. Analisis berfokus pada hubungan nutrisi dengan rating setiap sereal.
 
 ---
 
 # 📥 1. Proses Analisis: Dari CSV → KNIME → Visualisasi
 
-Berikut adalah alur lengkap bagaimana data diproses:
+Berikut adalah alur lengkap proses analisis:
 
 ---
 
-## 🔹 **1. Import Data (Cereals.csv)**  
-Menggunakan node **CSV Reader**, KNIME membaca data mentah yang berisi:
+## 🔹 **1. Import Data (Cereals.csv)**
+Menggunakan node **CSV Reader**, KNIME membaca data mentah berisi:
 
 - Kalori  
 - Protein  
@@ -23,88 +21,96 @@ Menggunakan node **CSV Reader**, KNIME membaca data mentah yang berisi:
 - Gula  
 - Potassium  
 - Rating  
-- dan atribut lain
-
-Langkah ini memastikan semua kolom dibaca dengan tipe data yang benar.
+- dan atribut lainnya
 
 ---
 
-## 🔹 **2. Data Preprocessing (Pembersihan Data)**  
-Node yang digunakan dalam workflow:
+## 🔹 **2. Data Preprocessing**
+Tahap pembersihan menggunakan KNIME:
 
-- **Missing Value** → menangani data kosong  
-- **Column Filter** → memilih kolom relevan  
+- **Missing Value** → menangani nilai kosong  
+- **Column Filter** → memilih kolom yang relevan  
 - **Row Filter** → membuang baris yang tidak lengkap  
-- **Rule Engine / Math Formula** (jika perlu transformasi nilai)
+- Transformasi data dengan **Rule Engine** / **Math Formula** jika dibutuhkan  
 
-Tahap ini bertujuan membuat data siap dianalisis tanpa error atau bias.
-
----
-
-## 🔹 **3. Exploratory Data Analysis (EDA)**  
-Node yang digunakan:
-
-- **Statistics** → melihat mean, median, min, max  
-- **Data Explorer** → mendeteksi outlier  
-- **Sorter** / **GroupBy** → untuk agregasi & pola awal  
-
-Hasil EDA memberi gambaran umum sebelum visual dibuat.
+Tujuannya membuat data siap dianalisis tanpa error.
 
 ---
 
-# 📊 2. Visualisasi & Penjelasan
+## 🔹 **3. Exploratory Data Analysis (EDA)**
+Menggunakan node:
 
-Berikut visualisasi utama yang dihasilkan dari data:
+- **Statistics**  
+- **Data Explorer**  
+- **Sorter / GroupBy**  
 
----
-
-## 📈 **1. Distribusi Kalori pada Sereal**  
-![Distribusi Kalori](calories.png)
-
-Sebagian besar sereal berada pada kisaran **90–120 kalori per porsi**, yang berarti produsen cenderung menargetkan produk sarapan sehat dengan kalori moderat.
+Memberikan gambaran awal, persebaran data, dan potensi pola.
 
 ---
 
-## 📈 **2. Hubungan Kadar Gula dan Rating**  
-![Sugar vs Rating](sugar_rating2.png)
+# 📊 2. Visualisasi dan Penjelasan
 
-Terlihat pola negatif: semakin tinggi kadar gula dalam sereal, rating **cenderung menurun**.  
-Konsumen dan panel penilai tampaknya lebih menghargai sereal yang tidak terlalu manis.
+Berikut visualisasi utama berdasarkan file PNG yang telah di-upload ke repository ini:
 
 ---
 
-## 📈 **3. Pengaruh Protein terhadap Rating**  
-![Protein vs Rating](protein_rating.png)
+## 📈 **1. Distribusi Kalori (Histogram)**
+![Histogram Kalori](Histogram.png)
 
-Produk dengan kandungan protein lebih tinggi umumnya mendapat rating yang lebih baik.  
-Ini menunjukkan bahwa nutrisi penting seperti protein berkontribusi positif terhadap persepsi kualitas sereal.
+Histogram menunjukkan bahwa sebagian besar produk sereal memiliki **90–120 kalori**.  
+Ini menandakan produsen cenderung menjaga nilai kalori tetap moderat agar sereal dianggap lebih sehat sebagai menu sarapan.
 
 ---
 
-# 🧠 3. Insight & Kesimpulan Akhir
+## 📈 **2. Pengaruh Serat (Fiber) terhadap Rating**
+![Scatter Fiber](Scatter Plot fiber.png)
 
-Dari seluruh proses analisis KNIME hingga visualisasi, diperoleh insight berikut:
+Scatter plot menunjukkan hubungan kandungan **serat** dengan **rating**.  
+Terlihat kecenderungan bahwa sereal dengan serat lebih tinggi sering mendapatkan rating lebih baik.  
+Serat adalah komponen penting kesehatan sehingga memengaruhi persepsi kualitas.
 
-### ✅ **1. Kalori stabil pada kisaran moderat**  
-Mayoritas sereal tidak terlalu tinggi kalori, cocok untuk sarapan.
+---
 
-### ✅ **2. Gula memiliki pengaruh negatif terhadap rating**  
-Sereal manis cenderung dinilai kurang baik, menunjukkan pergeseran preferensi ke arah makanan lebih sehat.
+## 📈 **3. Pengaruh Gula terhadap Rating**
+![Scatter Gula](Scatter Plot sugars.png)
 
-### ✅ **3. Protein meningkatkan rating**  
-Kandungan protein memberi nilai tambah dalam persepsi kesehatan sereal.
+Terlihat pola negatif: semakin tinggi kadar gula, rating cenderung menurun.  
+Konsumen cenderung memilih sereal yang tidak terlalu manis dan lebih sehat.
 
-### ✅ **4. Kombinasi nutrisi “ideal” bagi rating tinggi:**  
-- Kalori moderat  
+---
+
+## 📈 **4. Scatter Plot Nutrisi Lainnya**
+![Scatter Plot umum](Scatter Plot.png)
+
+Scatter Plot ini memberikan gambaran hubungan nutrisi lain terhadap rating.  
+Variasi pola membantu memahami faktor tambahan yang berpengaruh terhadap kualitas sereal.
+
+---
+
+# 🧠 3. Insight & Kesimpulan
+
+Berikut kesimpulan dari analisis KNIME dan visualisasi:
+
+### ✔ **1. Kalori moderat adalah rentang umum produk**
+Mayoritas sereal tidak terlalu tinggi kalori, mendukung citra makanan sehat.
+
+### ✔ **2. Gula memengaruhi rating secara negatif**
+Semakin manis produk, semakin rendah ratingnya.  
+Konsumen lebih memilih sereal rendah gula.
+
+### ✔ **3. Serat dan nutrisi baik lainnya meningkatkan rating**
+Sereal dengan kandungan nutrisi seimbang dan tinggi serat lebih disukai.
+
+### ✔ **4. Komposisi ideal berdasarkan dataset:**
 - Gula rendah  
-- Protein cukup tinggi  
+- Serat dan protein cukup tinggi  
+- Kalori moderat  
 
 ### 🎯 **Kesimpulan Utama:**  
-Sereal dengan komposisi lebih sehat mendapatkan rating lebih tinggi. KNIME mempermudah keseluruhan proses mulai dari membaca data, membersihkan, menganalisis, hingga menghasilkan visualisasi yang mudah dipahami.
+Sereal yang memiliki nutrisi sehat seperti **serat & protein tinggi** serta **gula rendah** mendapatkan rating yang lebih tinggi.  
+KNIME sangat membantu dalam mengautomasi proses eksplorasi dan visualisasi dataset ini.
 
 ---
 
-# 📂 4. Isi Repository
-
-Repository ini sebaiknya berisi:
+# 📂 4. Struktur Repository yang Direkomendasikan
 
